@@ -1,0 +1,87 @@
+[
+  {
+    "title": "Apache Kafka",
+    "slug": "apachekafka",
+    "hex": "231F20",
+    "source": "https://apache.org/logos",
+    "guidelines": "https://www.apache.org/foundation/marks",
+    "license": {
+      "type": "Apache-2.0"
+    }
+  },
+  {
+    "title": "Docker",
+    "slug": "docker",
+    "hex": "2496ED",
+    "source": "https://www.docker.com/company/newsroom/media-resources"
+  },
+  {
+    "title": "GSAP",
+    "slug": "gsap",
+    "hex": "0AE448",
+    "source": "https://gsap.com/brand/",
+    "guidelines": "https://gsap.com/brand/",
+    "aliases": {
+      "aka": [
+        "GreenSock Animation Platform"
+      ]
+    }
+  },
+  {
+    "title": "Next.js",
+    "slug": "nextdotjs",
+    "hex": "000000",
+    "source": "https://vercel.com/design/brands#next-js",
+    "guidelines": "https://vercel.com/design/brands#next-js"
+  },
+  {
+    "title": "OpenJDK",
+    "slug": "openjdk",
+    "hex": "000000",
+    "source": "https://hg.openjdk.java.net/duke/duke/file/ca00f100dafc/vector/Agent.svg",
+    "license": {
+      "type": "BSD-3-Clause"
+    }
+  },
+  {
+    "title": "PostgreSQL",
+    "slug": "postgresql",
+    "hex": "4169E1",
+    "source": "https://wiki.postgresql.org/wiki/Logo",
+    "guidelines": "https://www.postgresql.org/about/policies/trademarks/"
+  },
+  {
+    "title": "Python",
+    "slug": "python",
+    "hex": "3776AB",
+    "source": "https://www.python.org/community/logos/",
+    "guidelines": "https://www.python.org/community/logos/"
+  },
+  {
+    "title": "React",
+    "slug": "react",
+    "hex": "61DAFB",
+    "source": "https://github.com/facebook/create-react-app/blob/282c03f9525fdf8061ffa1ec50dce89296d916bd/test/fixtures/relative-paths/src/logo.svg",
+    "aliases": {
+      "dup": [
+        {
+          "title": "React Native",
+          "source": "https://reactnative.dev"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Spring Boot",
+    "slug": "springboot",
+    "hex": "6DB33F",
+    "source": "https://spring.io/projects"
+  },
+  {
+    "title": "TypeScript",
+    "slug": "typescript",
+    "hex": "3178C6",
+    "source": "https://www.typescriptlang.org/branding",
+    "guidelines": "https://www.typescriptlang.org/branding"
+  }
+]

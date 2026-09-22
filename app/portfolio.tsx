@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Showreel from "./showreel";
+import TechStack from "./tech-stack";
 import {
   ArrowUpRight,
   ArrowDown,
@@ -171,9 +172,22 @@ export default function Portfolio() {
             Standard Chartered <ArrowUpRight size={14} />
           </span>
         </div>
-        <a className="contact-pill magnetic" href={`mailto:${social.email}`}>
-          <span>Let’s talk</span>
-          <ArrowUpRight size={18} />
+        <a
+          className="contact-pill magnetic"
+          href={`mailto:${social.email}`}
+          aria-label="Get in touch"
+        >
+          <span className="contact-gesture" aria-hidden="true">
+            👍🏼
+          </span>
+          <span className="contact-pill-body">
+            <span className="contact-label-window">
+              <span className="contact-label-track">
+                <span>Get in touch</span>
+                <span aria-hidden="true">Get in touch</span>
+              </span>
+            </span>
+          </span>
         </a>
       </header>
       <main id="main">
@@ -575,6 +589,7 @@ export default function Portfolio() {
             </div>
           </div>
         </section>
+        <TechStack />
         <footer
           id="contact"
           className="contact section-pad"
@@ -583,7 +598,7 @@ export default function Portfolio() {
         >
           <div className="section-kicker">
             <span className="section-index">
-              05 / GOOD THINGS START WITH HELLO
+              06 / GOOD THINGS START WITH HELLO
             </span>
             <span className="section-index">HAVE SOMETHING IN MIND?</span>
           </div>

@@ -2,6 +2,11 @@
 
 A complete portfolio with server-rendered content, GSAP motion, and Lenis smooth scrolling. The visual reference is [itsjay.us](https://www.itsjay.us/); this implementation uses original styling, artwork, copy, and project presentation tailored to Sandhit.
 
+Detailed guides:
+
+- [Architecture, components, and animation design](README_ARCHITECTURE.md)
+- [Dependency installation, local development, and production deployment to Vercel](README_SETUP_DEPLOYMENT.md)
+
 ## 1. The plan
 
 **Audience:** engineering hiring managers, collaborators, and people exploring Sandhit’s work.
@@ -25,12 +30,12 @@ The reference’s hierarchy, large typography, floating navigation, project-focu
 ## 2. Stack
 
 - React 19 and TypeScript.
-- Next.js App Router conventions, served through the Sites Vinext/Vite runtime.
+- Next.js App Router, with separate standard Next.js and Sites Vinext/Vite build commands.
 - GSAP 3.15 with ScrollTrigger, loaded only on the client.
 - Lenis 1.3 for synchronized wheel/anchor scrolling.
 - Custom responsive CSS; Tailwind is available in the starter.
 - Self-hosted Inter and Space Grotesk variable fonts.
-- Optimized WebP artwork, a Memoji-style dock avatar, a 12-second H.264 reel, and an SVG favicon.
+- Optimized WebP artwork, a Memoji-style dock avatar and favicon, a 12-second H.264 reel, and locally served technology logos.
 - No backend, database, keys, or environment variables are needed for the portfolio.
 
 The current deployment uses Sites with a Cloudflare-compatible Worker build. This is **not an already-deployed Vercel project**.
@@ -42,37 +47,39 @@ Use Node.js 22.13+ and the package-manager version declared in `package.json`. K
 ```bash
 npm install --global pnpm@11.25.0
 pnpm install --frozen-lockfile
-pnpm dev
+pnpm dev:next
 ```
 
-The portable starter normally serves at `http://localhost:5173`. Use the address printed by the development command.
+Open `http://localhost:3000`. Use the address printed by the development command if that port is occupied.
 
 ```bash
 pnpm exec tsc --noEmit
-pnpm build
-pnpm exec prettier --write app README.md
+pnpm build:next
+pnpm start:next
 ```
 
-The scripts choose a local execution profile. A clean checkout defaults to the portable Vinext runtime; the managed preview profile is deliberately excluded from Git. Preserve the existing installation/build scripts for Sites.
+The separate `pnpm dev`, `pnpm build`, and `pnpm start` commands retain the Sites runtime. A clean checkout defaults to its portable Vinext profile; the managed preview profile is deliberately excluded from Git. See the [setup guide](README_SETUP_DEPLOYMENT.md) for both command sets.
 
 ## 4. Where to edit
 
-| File                           | What belongs there                                                                               |
-| ------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `app/page.tsx`                 | Page entry point                                                                                 |
-| `app/portfolio.tsx`            | Personal content, social links, project data, sections, navigation, copy-email and motion toggle |
-| `app/motion.ts`                | GSAP timelines, ScrollTrigger configuration, Lenis integration, magnetic hover, teardown         |
-| `app/showreel.tsx`             | Video markup, poster, and visibility-aware playback                                              |
-| `app/globals.css`              | Palette, typography, spacing, responsive breakpoints, hover/focus/reduced-motion styling         |
-| `app/layout.tsx`               | Page title, description, Open Graph text and favicon                                             |
-| `public/chrome-asterisk.webp`  | Original decorative artwork                                                                      |
-| `public/showreel.mp4`          | Bundled silent 1280×720 motion reel, approximately 338 KB                                        |
-| `public/showreel-poster.webp`  | Still image shown before playback or when autoplay is blocked                                    |
-| `public/memoji.webp`           | Dock avatar; replace with your own Memoji or portrait                                            |
-| `scripts/generate-showreel.py` | Optional source for regenerating the bundled reel                                                |
-| `public/fonts/`                | Local font assets                                                                                |
-| `public/favicon.svg`           | Site monogram                                                                                    |
-| `.openai/hosting.json`         | Existing Sites identity; keep its project ID unchanged                                           |
+| File                                                                                      | What belongs there                                                                               |
+| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `app/page.tsx`                                                                            | Page entry point                                                                                 |
+| `app/portfolio.tsx`                                                                       | Personal content, social links, project data, sections, navigation, copy-email and motion toggle |
+| `app/motion.ts`                                                                           | GSAP timelines, ScrollTrigger configuration, Lenis integration, magnetic hover, teardown         |
+| `app/showreel.tsx`                                                                        | Video markup, poster, and visibility-aware playback                                              |
+| `app/globals.css`                                                                         | Palette, typography, spacing, responsive breakpoints, hover/focus/reduced-motion styling         |
+| `app/layout.tsx`                                                                          | Page title, description, Open Graph text and favicon                                             |
+| `public/chrome-asterisk.webp`                                                             | Original decorative artwork                                                                      |
+| `public/showreel.mp4`                                                                     | Bundled silent 1280×720 motion reel, approximately 338 KB                                        |
+| `public/showreel-poster.webp`                                                             | Still image shown before playback or when autoplay is blocked                                    |
+| `public/memoji.webp`                                                                      | Dock avatar; replace with your own Memoji or portrait                                            |
+| `scripts/generate-showreel.py`                                                            | Optional source for regenerating the bundled reel                                                |
+| `public/fonts/`                                                                           | Local font assets                                                                                |
+| `app/tech-stack.tsx`                                                                      | Technology grid and accessible duplicated-letter heading                                         |
+| `public/favicon-memoji-*.png`, `public/favicon-memoji.ico`, `public/apple-touch-icon.png` | Memoji favicons and home-screen icon                                                             |
+| `public/icons/`                                                                           | Monochrome technology logos from Simple Icons 16.32.0; included license and attribution          |
+| `.openai/hosting.json`                                                                    | Existing Sites identity; keep its project ID unchanged                                           |
 
 To add a project, extend the `projects` array and supply a real title, description, technology list, and URL. The current two visual layouts are specialized for QueryLens and Welth; add a corresponding visual component when adding a third project.
 
@@ -91,6 +98,12 @@ The bundled reel is original motion typography and illustrative QueryLens/Welth 
 To optionally rebuild that reel, install Python's `Pillow`, `fonttools[woff]`, and `brotli` packages plus FFmpeg, then run `python scripts/generate-showreel.py` from the project root. These tools are only needed to author the video; they are not needed to run or deploy the website. Font license files are included beside the fonts.
 
 ## 5. Motion map
+
+The header's **Get in touch** link opens the same contact email. On hover or keyboard focus, a thumbs-up circle springs out to the left while the label rolls upward. Edit `.contact-gesture` and `.contact-label-track` in `app/globals.css` to tune it. Native color emoji rendering varies slightly by operating system.
+
+The **Modern tech stack** section uses a pair of identical glyphs per letter, with the second copy positioned above the first. GSAP moves each pair down by 100% inside a clipped row, beginning with the T in TECH. The `rolling-tech-stack` ScrollTrigger scrubs the timeline in both directions, so scrolling upward returns the letters to their initial positions. The grid lists technologies already used across Sandhit's work and projects. Edit the `technologies` array in `app/tech-stack.tsx` to update it. Reduced motion or the dock pause control leaves the complete heading readable without animation.
+
+Technology icons are sourced from [Simple Icons](https://github.com/simple-icons/simple-icons), version 16.32.0, and served locally. Source and licensing details are in `public/icons/ATTRIBUTION.md` and `public/icons/LICENSE.md`. No icon-package runtime dependency was added.
 
 | Effect              | How it works                                                                                                    | Tuning point                                                                                                  |
 | ------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -139,19 +152,13 @@ This project retains its registered Site identity and source history. Changes fo
 
 A domain can be connected after choosing the final address and public audience. Domain purchase, DNS changes, and public access changes are not part of this initial private deployment.
 
-### If you choose Vercel later
+### Vercel deployment
 
-The application files use familiar App Router conventions, so the content can be moved into a standard Next.js project. Treat this as a separate deployment target; do not assume that Vercel will understand the Sites Worker artifact.
+This repository also builds directly with standard Next.js. The included `vercel.json` selects the Next.js framework, installs the pinned dependencies, and runs `build:next`. Keep the complete repository, including `public/`, `vendor/`, and the PostCSS configuration.
 
-1. Create or reuse your own Next.js App Router repository.
-2. Copy the portfolio’s `app` files and `public` assets into it.
-3. Keep its standard Next.js config and install the required app dependencies: `gsap`, `lenis`, and `lucide-react`.
-4. This stylesheet includes a starter-vendor import. Either copy `vendor/shadcn-tailwind-4.13.0.css` plus its dependencies, or remove the first three Tailwind/vendor imports and the `@theme inline` block; the portfolio uses custom CSS and does not depend on those utilities except for optional font smoothing.
-5. Use standard scripts: `next dev`, `next build`, and `next start`.
-6. Run its TypeScript and production-build checks, then import the repository into Vercel as a Next.js project.
-7. Confirm desktop/mobile behavior, update the canonical URL to the final public domain, and connect that domain in Vercel.
+Run `pnpm build:next` locally, push the source to your GitHub repository, and import that repository into Vercel. Use Node.js 22.x and leave the output directory at its framework default. Follow the [step-by-step setup and deployment guide](README_SETUP_DEPLOYMENT.md) for dashboard settings, optional CLI deployment, domains, and troubleshooting.
 
-The Vercel path is a migration checklist, not a tested second deployment.
+The Next.js production build has been checked locally. Deployment into your Vercel account is a separate step; the existing hosted Site continues to use its Sites build.
 
 ## 8. Next content improvements
 

@@ -110,6 +110,29 @@ export function setupMotion(root: HTMLElement) {
       },
     });
 
+    // Duplicated glyphs roll down inside clipped rows. Scrubbing reverses the
+    // same motion on scroll-up; the leading T starts the second line's wave.
+    const stackLetters = gsap.utils.toArray<HTMLElement>(".stack-letter");
+    const stackOrder = [6, 0, 7, 1, 8, 2, 9, 3, 10, 4, 11, 5, 12, 13, 14];
+    gsap.to(
+      stackOrder.map((index) => stackLetters[index]),
+      {
+        yPercent: 100,
+        duration: 0.6,
+        stagger: 0.13,
+        ease: "power2.inOut",
+        scrollTrigger: {
+          id: "rolling-tech-stack",
+          trigger: ".stack-heading-stage",
+          start: "top 78%",
+          // More scroll travel makes the roll slower without changing page speed.
+          end: "center 20%",
+          scrub: 1.05,
+          invalidateOnRefresh: true,
+        },
+      },
+    );
+
     gsap.utils.toArray<HTMLElement>(".reveal").forEach((element) => {
       gsap.from(element, {
         y: 36,
