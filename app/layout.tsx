@@ -2,13 +2,18 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Sandhit Karmakar — Software Engineer",
-  description:
-    "Software engineer building thoughtful interfaces, reliable backend systems, and AI-powered products. Explore Sandhit Karmakar’s projects and experience.",
+  authors: [{ name: "Sandhit Karmakar", url: "https://github.com/Sandhit06" }],
+  creator: "Sandhit Karmakar",
+  twitter: {
+    card: "summary",
+    title: "Sandhit Karmakar | Software Engineer & Full Stack Developer",
+    description: "Sandhit Karmakar is a software engineer at Standard Chartered and a VIT Chennai Computer Science (AI & ML) graduate. Explore his full-stack, backend and AI projects using React, Next.js, Java, Spring Boot and Python.",
+  },
+  title: "Sandhit Karmakar | Software Engineer & Full Stack Developer",
+  description: "Sandhit Karmakar is a software engineer at Standard Chartered and a VIT Chennai Computer Science (AI & ML) graduate. Explore his full-stack, backend and AI projects using React, Next.js, Java, Spring Boot and Python.",
   openGraph: {
-    title: "Sandhit Karmakar — Software Engineer",
-    description:
-      "Thoughtful interfaces. Reliable systems. Useful AI. Selected work by Sandhit Karmakar.",
+    title: "Sandhit Karmakar | Software Engineer & Full Stack Developer",
+    description: "Sandhit Karmakar is a software engineer at Standard Chartered and a VIT Chennai Computer Science (AI & ML) graduate. Explore his full-stack, backend and AI projects using React, Next.js, Java, Spring Boot and Python.",
     type: "website",
     locale: "en_US",
   },
