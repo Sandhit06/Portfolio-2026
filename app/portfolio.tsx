@@ -26,7 +26,7 @@ const projects = [
     type: "CONVERSATIONAL ANALYTICS",
     description: "Ask your data a better question.",
     detail:
-      "A conversational workspace that turns CSV data into answers, charts, and downloadable reports. React meets a FastAPI backend, semantic search, and an LLM reasoning layer.",
+      "QueryLens AI is a conversational analytics project with contributions by Sandhit Karmakar. It turns CSV data into answers, charts, and downloadable reports. React meets a FastAPI backend, semantic search, and an LLM reasoning layer.",
     tags: ["React", "Python", "FastAPI", "LangChain"],
     href: "https://querylens.vercel.app/",
     action: "Visit project",
@@ -38,7 +38,7 @@ const projects = [
     type: "AI FINANCE PLATFORM",
     description: "A little clarity for your money.",
     detail:
-      "A full-stack finance application with intelligent expense categorization, receipt scanning, account management, and automated budgeting workflows.",
+      "Welth is a full-stack AI finance project by Sandhit Karmakar, featuring intelligent expense categorization, receipt scanning, account management, and automated budgeting workflows.",
     tags: ["Next.js", "React", "Gemini AI", "Tailwind CSS"],
     href: "https://github.com/Sandhit06/AI-Finance-Platform.git",
     action: "Explore source",
@@ -290,7 +290,7 @@ export default function Portfolio() {
               </h2>
               <div className="about-details">
                 <p>
-                  I’m a software engineer at Standard Chartered, working across
+                  I’m Sandhit Karmakar, a software engineer at Standard Chartered, working across
                   enterprise banking applications, data workflows, and real-time
                   monitoring. Away from work, I build AI products and explore
                   what makes great software feel simple.
