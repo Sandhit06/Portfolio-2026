@@ -174,3 +174,40 @@ Do not publish employer-internal screenshots or source code as portfolio assets.
 ## 9. A prompt for future edits
 
 > Work on the existing Sandhit portfolio; preserve its identity, package manager, and current deployment target. Read README.md and the existing source first. Keep the grayscale/ink/lime art direction, responsive behavior, accessible navigation, reduced-motion support, and GSAP cleanup. Update [describe the section or behavior]. Use only supplied facts, links, and authorized assets. Avoid adding a new animation library or replacing the project scaffold. Run TypeScript and a production build, verify the changed interactions, and publish the updated Site unless I ask for local-only work. Explain the change and any remaining limitation.
+
+
+## Still need help?
+Open an issue on our GitHub repository, and we will help you as soon as possible.
+
+Enjoy exploring and extending this project! Feel free to contribute and suggest improvements.
+
+## Contact
+
+If you want to contact me you can reach me at [Twitter](https://x.com/SandhitK).
+
+## Developer
+<table>
+    <tr align="center">
+        <td>
+        Sandhit Karmakar
+        <p align="center">
+            <img src = "https://avatars.githubusercontent.com/u/90787826?v=4" width="150" height="150" alt="Dhruv Shah">
+        </p>
+            <p align="center">
+                <a href="https://github.com/Sandhit06">
+                    <img src="https://api.iconify.design/mdi:github.svg?color=%230088cc" width="36" height="36" alt="GitHub"/>
+                </a>
+                <a href="https://www.linkedin.com/in/sandhit-karmakar/" target="_blank">
+                    <img src="https://api.iconify.design/mdi:linkedin.svg?color=%230088cc" width="36" height="36" alt="LinkedIn"/>
+                </a>
+                <a href="mailto:sandhitkarmakar@gmail.com" target="_blank">
+                    <img src="https://api.iconify.design/mdi:email.svg?color=%230088cc" width="36" height="36" alt="Email"/>
+                </a>
+            </p>
+        </td>
+    </tr>
+</table>
+
+<p align="center">
+    Made with ❤️ by <a href="https://github.com/Sandhit06">Sandhit Karmakar</a>
+</p>
